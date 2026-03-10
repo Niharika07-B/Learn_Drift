@@ -1,0 +1,525 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0e27;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* ============================================
+   DARK THEME - ENHANCED GALAXY BACKGROUND
+   ============================================ */
+
+.galaxy-bg {
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 25%, #2d1b4e 50%, #1a1f3a 75%, #0a0e27 100%);
+  background-size: 400% 400%;
+  animation: galaxyShift 20s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.galaxy-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 10% 15%, #ffffff, transparent),
+    radial-gradient(1px 1px at 25% 35%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 40% 20%, #ffffff, transparent),
+    radial-gradient(1px 1px at 55% 45%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 70% 30%, #ffffff, transparent),
+    radial-gradient(1px 1px at 85% 55%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 15% 70%, #ffffff, transparent),
+    radial-gradient(1px 1px at 50% 80%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 75% 75%, #ffffff, transparent),
+    radial-gradient(1px 1px at 90% 85%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 20% 90%, #ffffff, transparent),
+    radial-gradient(1px 1px at 60% 65%, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 35% 55%, #00ffff, transparent),
+    radial-gradient(1px 1px at 80% 40%, #ff00ff, transparent),
+    radial-gradient(1.5px 1.5px at 45% 75%, #ffff00, transparent);
+  background-size: 100% 100%;
+  animation: twinkle 3s ease-in-out infinite;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.galaxy-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(138, 43, 226, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(75, 0, 130, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(255, 20, 147, 0.1) 0%, transparent 50%);
+  animation: nebula 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes galaxyShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+@keyframes nebula {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ============================================
+   LIGHT THEME - ENHANCED GRADIENT
+   ============================================ */
+
+.light-bg {
+  background: linear-gradient(135deg, #f0e6ff 0%, #e6f2ff 25%, #fff0e6 50%, #e6f2ff 75%, #f0e6ff 100%);
+  background-size: 400% 400%;
+  animation: lightShift 20s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.light-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(147, 112, 219, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(100, 149, 237, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(186, 85, 211, 0.2), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(138, 43, 226, 0.3), transparent),
+    radial-gradient(2px 2px at 90% 60%, rgba(75, 0, 130, 0.2), transparent),
+    radial-gradient(1px 1px at 33% 80%, rgba(123, 104, 238, 0.3), transparent),
+    radial-gradient(1px 1px at 15% 90%, rgba(147, 112, 219, 0.2), transparent);
+  background-size: 200% 200%;
+  animation: lightStars 30s linear infinite;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.light-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(186, 85, 211, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(138, 43, 226, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 0%, rgba(147, 112, 219, 0.06) 0%, transparent 50%);
+  animation: lightNebula 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes lightShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes lightStars {
+  from { transform: translateY(0px); }
+  to { transform: translateY(-1000px); }
+}
+
+@keyframes lightNebula {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.4; }
+}
+
+/* ============================================
+   GLASSMORPHISM EFFECT
+   ============================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 112, 219, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(147, 112, 219, 0.1);
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.glow-purple {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+}
+
+.glow-blue {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.6);
+}
+
+.glow-pink {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.6);
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+.transition-theme {
+  transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6366f1, #8b5cf6);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #818cf8, #a78bfa);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.5); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.8); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ============================================
+   THEME TOGGLE BUTTON STYLES
+   ============================================ */
+
+.theme-toggle-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+.theme-toggle-btn:active {
+  transform: scale(0.95);
+}
+
+.theme-toggle-icon {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .theme-toggle-icon {
+  transform: rotate(20deg) scale(1.2);
+}
+
+/* ============================================
+   PARTICLE EFFECTS
+   ============================================ */
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+}
+
+.particle-dark {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), transparent);
+}
+
+.particle-light {
+  background: radial-gradient(circle, rgba(147, 112, 219, 0.6), transparent);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+  .galaxy-bg::before {
+    background-size: 300% 300%;
+  }
+
+  .light-bg::before {
+    background-size: 300% 300%;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+}
+
+/* ============================================
+   DARK MODE SPECIFIC STYLES
+   ============================================ */
+
+[data-theme="dark"] {
+  --bg-primary: #0a0e27;
+  --bg-secondary: #1a1f3a;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   LIGHT MODE SPECIFIC STYLES
+   ============================================ */
+
+[data-theme="light"] {
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --border-color: rgba(147, 112, 219, 0.2);
+  --card-bg: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-light {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+
+.btn-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-gradient:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   LOADING ANIMATION
+   ============================================ */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* ============================================
+   FADE IN ANIMATION
+   ============================================ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ============================================
+   SCALE UP ANIMATION
+   ============================================ */
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scale-up {
+  animation: scaleUp 0.5s ease-out;
+}
+
+/* ============================================
+   BOUNCE ANIMATION
+   ============================================ */
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.bounce-soft {
+  animation: bounce-soft 2s ease-in-out infinite;
+}
+
+/* ============================================
+   GLOW PULSE ANIMATION
+   ============================================ */
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+  }
+  50% { 
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.8);
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   SLIDE IN ANIMATION
+   ============================================ */
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.5s ease-out;
+}
