@@ -43,4 +43,12 @@ async def predict_drift_api(accuracy_rate: float, avg_time: float, retry_rate: f
 
     result = predict_drift(accuracy_rate, avg_time, retry_rate)
 
+    await database.drift_predictions.insert_one({
+        "accuracy_rate": accuracy_rate,
+        "avg_time": avg_time,
+        "retry_rate": retry_rate,
+        "drift_score": result["drift_score"],
+        "status": result["status"]
+    })
+
     return result
