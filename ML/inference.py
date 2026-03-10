@@ -1,7 +1,7 @@
 import joblib
 import pandas as pd
 
-model = joblib.load("drift_model.pkl")
+model = joblib.load("../models/drift_model.pkl")
 
 def predict_drift(accuracy, avg_time, retry_rate):
 
