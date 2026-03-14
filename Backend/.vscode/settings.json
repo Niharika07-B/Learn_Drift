@@ -1,0 +1,7 @@
+{
+<<<<<<< HEAD
+=======
+    "javascript.autoClosingTags": false,
+>>>>>>> 992c2f9c33f5a62f7b3500799689a805ac6fef4c
+    "python-envs.defaultEnvManager": "ms-python.python:system"
+}

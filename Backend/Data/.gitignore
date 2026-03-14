@@ -1,0 +1,13 @@
+# Python virtual environment
+venv/
+
+# ML generated data
+*.csv
+*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+
+# VSCode settings
+.vscode/
